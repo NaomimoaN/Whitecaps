@@ -1,0 +1,12 @@
+portfolio/
+├── index.html
+├── css/
+│   ├── global.css       ← 変数・reset・nav・footer・アニメーション（全ページ共通）
+│   ├── home.css         ← hero・work・about・contact（index.htmlのみ）
+│   ├── work.css         ← プロジェクトページ専用（work/*.htmlのみ）
+│   └── typewriter.css   ← タイプライター専用（index.htmlのみ）
+├── js/
+│   └── main.js
+└── work/
+    ├── funjump.html
+    └── whitecaps.html

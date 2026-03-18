@@ -1,0 +1,25 @@
+/* ============================================
+   typewriter.css
+   CSS-only typewriter animation for hero title
+   Used only on index.html
+   ============================================ */
+
+/* ── CSS Typewriter ── */
+@keyframes typing1 { from{width:0} to{width:9ch} }
+@keyframes typing2 { from{width:0} to{width:7ch} }
+@keyframes typing3 { from{width:0} to{width:6ch} }
+@keyframes typing4 { from{width:0} to{width:12ch} }
+@keyframes cursor-blink { 0%,100%{border-right-color:var(--gold)} 50%{border-right-color:transparent} }
+@keyframes cursor-fade { to{border-right-color:transparent} }
+
+.tw-line {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid transparent;
+}
+.tw-1 { animation: typing1 0.6s steps(9,end) 0.4s both, cursor-blink 0.65s step-end 0.4s 3; }
+.tw-2 { animation: typing2 0.5s steps(7,end) 1.3s both, cursor-blink 0.65s step-end 1.3s 3; }
+.tw-3 { animation: typing3 0.3s steps(4,end) 2.0s both, cursor-blink 0.65s step-end 2.0s 3; }
+.tw-4 { animation: typing4 0.8s steps(12,end) 2.5s both, cursor-blink 0.65s step-end 2.5s 4, cursor-fade 0.5s ease 5.1s both; }

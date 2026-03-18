@@ -1,0 +1,121 @@
+/* ============================================
+   global.css
+   Shared across ALL pages: variables, reset,
+   nav, footer, animations, responsive
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow:wght@300;400;500&display=swap');
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #00245E;
+  --navy-deep: #001536;
+  --navy-mid: #003581;
+  --blue: #9DC2EA;
+  --gold: #C9A84C;
+  --white: #FFFFFF;
+  --off-white: #F4F2ED;
+  --light-gray: #E4E2DD;
+  --mid-gray: #7A7870;
+  --text-dark: #0D0D0D;
+  --text-mid: #4A4A46;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--off-white); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+/* ── NAV ── */
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 48px; height: 64px;
+  background: var(--navy);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--white); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 0; list-style: none; height: 100%; }
+.nav-links li { height: 100%; }
+.nav-links a {
+  height: 100%; display: flex; align-items: center;
+  padding: 0 20px;
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover { color: var(--white); border-bottom-color: var(--gold); }
+
+
+/* ── FOOTER ── */
+
+footer {
+  background: var(--navy-deep);
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 3px solid var(--gold);
+}
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.footer-name span { color: var(--gold); }
+.footer-note { font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.04em; }
+
+
+/* ── ANIMATIONS ── */
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0); } }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero-kicker { animation: slideIn 0.5s ease both; }
+.hero-sub     { animation: fadeUp 0.6s ease 3.6s both; opacity:0; }
+.hero-cta     { animation: fadeUp 0.6s ease 3.75s both; opacity:0; }
+.hero-stats   { animation: fadeUp 0.6s ease 3.9s both; opacity:0; }
+
+/* Typewriter */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+#tw-cursor {
+  display:inline-block; width:3px; height:0.82em;
+  background:var(--gold); vertical-align:middle;
+  margin-left:4px;
+  animation:blink 0.65s step-end infinite;
+}
+
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .hero-content { padding: 40px 20px; }
+  .hero-title { font-size: 72px; }
+  .hero-stats { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 20px; }
+  .section-header { padding: 0 20px 32px; }
+  .section-title { font-size: 32px; }
+  .work-item { grid-template-columns: 1fr; }
+  .work-num-col { display: none; }
+  .work-main { flex-direction: column; }
+  .work-visual { width: 100%; min-height: 200px; }
+  .work-info { padding: 24px 20px; }
+  .work-arrow-col { padding: 0 20px 24px; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-left, .about-right { padding: 48px 20px; }
+  .about-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .contact-section { grid-template-columns: 1fr; padding: 48px 20px; }
+  footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  .hero-bg-num { font-size: 200px; }
+}
